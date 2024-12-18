@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css Files  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicon img  -->
+    <link rel="icon" href="images/game-over.png" />
+    <title>Game Over</title>
+  </head>
+  <body>
+    <!--* Loader -->
+    <div class="loading d-none">
+      <span class="loader"></span>
+    </div>
+
+    <!--* Main Design Start -->
+
+    <main id="home">
+      <section class="header-img">
+        <img src="images/wraper.png" class="w-100" alt="" />
+      </section>
+      <nav class="navbar navbar-expand-lg position-sticky top-0 z-3 mb-4">
+        <div class="container d-flex justify-content-between">
+          <a class="navbar-brand text-white" href="#">
+            <img
+              src="images/logo-sm.png"
+              alt="Logo"
+              width="30"
+              height="30"
+              class="d-inline-block align-text-top"
+            />
+            Game Reviews
+          </a>
+          <button
+            class="navbar-toggler text-white bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon text-white"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-item">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">MMORPG</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Shooter</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Sailing</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Permadeath</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Superhero</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Pixel</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="container text-white">
+        <div class="games-list mt-3">
+          <div class="row g-4" id="games"></div>
+        </div>
+      </section>
+    </main>
+
+    <!--^ Main Design end -->
+
+    <!--* Game-details  -->
+    <section class="game-details d-none pt-3" id="game-details">
+      <div class="container">
+        <div
+          class="game-details-header d-flex justify-content-between align-items-center mb-4"
+        >
+          <h2>Details Game</h2>
+          <i class="fa-solid fa-xmark" id="close-game-details"></i>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-deteails w-100" src="" alt="thumbnail" />
+          </div>
+          <div class="col-md-8 mt-3 mt-md-0">
+            <h3 class="game-title">Title:</h3>
+            <h4 class="game mb-3 mt-3 game-catagory">
+              catagory: <span class="badge"></span>
+            </h4>
+            <h4 class="game mb-3 game-platform">
+              Platform: <span class="badge"></span>
+            </h4>
+            <h4 class="game mb-3 game-Status">
+              Status: <span class="badge"></span>
+            </h4>
+            <p class="text-white game-description"></p>
+
+            <a
+              href="game-link"
+              target="_blank"
+              class="game-link btn btn-outline-warning text-white"
+              >Show More</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--^ Game-details end  -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>
