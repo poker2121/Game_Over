@@ -5,7 +5,8 @@ export function displayAllData(list) {
   let blackBox = ``;
 
   for (let i = 0; i < list.length; i++) {
-    blackBox += `   <div data-id="${list[i].id}" class="col-md-6 col-lg-4 col-xl-3 card-game">
+    blackBox += `
+       <div data-id="${list[i].id}" class="col-md-6 col-lg-4 col-xl-3 card-game">
 
             <div class="card bg-transparent">
 
@@ -19,7 +20,7 @@ export function displayAllData(list) {
                     <h5 class="mb-0">${list[i].title}</h5>
                     <span class="badge text-bg-primary p-2">Free</span>
                   </div>
-                <p class="card-text text-center">${list[i].short_description.slice(1,60)}</p>
+                <p class="card-text text-center">${list[i].short_description.split(" ", 7).join(" ")}</p>
               </div>
 
 
@@ -35,16 +36,12 @@ export function displayAllData(list) {
 
   document.getElementById("games").innerHTML = blackBox;
 
-  let cardGame =document.querySelectorAll(".card-game")
+  let cardGame = document.querySelectorAll(".card-game");
   for (let i = 0; i < cardGame.length; i++) {
-   
     cardGame[i].addEventListener("click", function (e) {
-       getGameDetalies(e.currentTarget.getAttribute("data-id"))
-       gameDetails.classList.remove("d-none");
-       home.classList.add("d-none")
-    })
-    
+      getGameDetalies(e.currentTarget.getAttribute("data-id"));
+      gameDetails.classList.remove("d-none");
+      home.classList.add("d-none");
+    });
   }
-
 }
-
