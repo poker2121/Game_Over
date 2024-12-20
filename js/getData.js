@@ -2,22 +2,13 @@ import { displayAllData } from "./displayAll.js";
 
 class DataManager {
   constructor() {
-    this.apiKey = '025be1d53bmsh2d58f28d81492e2p17f625jsnf92b413c6d7b';
-    this.apiHost = 'free-to-play-games-database.p.rapidapi.com';
+    this.apiBaseURL = 'https://www.freetogame.com/api';
   }
 
   async fetchData(url) {
     this.showLoading();
-    const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': this.apiKey,
-        'x-rapidapi-host': this.apiHost
-      }
-    };
-
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(url);
       if (response.ok) {
         const result = await response.json();
         this.hideLoading();
@@ -38,21 +29,21 @@ class DataManager {
   }
 
   async getAllGames() {
-    const result = await this.fetchData("https://free-to-play-games-database.p.rapidapi.com/api/games?category=mmorpg");
+    const result = await this.fetchData(`${this.apiBaseURL}/games`);
     if (result) {
       displayAllData(result);
     }
   }
 
   async getGameWithCategory(game) {
-    const result = await this.fetchData(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${game}`);
+    const result = await this.fetchData(`${this.apiBaseURL}/games?category=${game}`);
     if (result) {
       displayAllData(result);
     }
   }
 
   async getGameDetails(gameId) {
-    const result = await this.fetchData(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`);
+    const result = await this.fetchData(`${this.apiBaseURL}/game?id=${gameId}`);
     if (result) {
       this.displayGameDetails(result);
     }
@@ -74,4 +65,3 @@ export const dataManager = new DataManager();
 export const getAllGames = () => dataManager.getAllGames();
 export const getGameWithCategory = (game) => dataManager.getGameWithCategory(game);
 export const getGameDetails = (gameId) => dataManager.getGameDetails(gameId);
-
